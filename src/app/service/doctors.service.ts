@@ -12,7 +12,7 @@ export class DoctorsService {
   }
 
   getDoctors() {
-    return this.http.get('https://localhost:5001/pacient');
+    return this.http.get('https://localhost:5001/doctors');
   }
-
+  
 }

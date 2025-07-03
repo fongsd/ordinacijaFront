@@ -1,0 +1,33 @@
+<form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" class="appointment-form">
+  <h2>Zakazivanje pregleda</h2>
+  
+  <div class="form-group">
+    <label for="doctor">Izaberite doktora:</label>
+    <select id="doctor" formControlName="doctor" class="form-control">
+      <option *ngFor="let doctor of doctors" [value]="doctor.name">{{ doctor?.name }}</option>
+    </select>
+    </div>
+    <div class="form-group">
+    <label for="date">Datum pregleda:</label>
+    <input type="date" id="date" formControlName="date" class="form-control">
+    </div>
+    <div class="form-group">
+    <label for="time">Vreme pregleda:</label>
+    <input type="time" id="time" formControlName="time" class="form-control">
+    </div>
+    <div class="form-group">
+    <label for="patientName" required minlength="4">Ime pacijenta:</label>
+    <input type="text" id="patientName" formControlName="patientName" class="form-control">
+    </div>
+    <div class="form-group">
+    <label for="patientEmail">Email pacijenta:</label>
+    <input type="email" id="patientEmail" formControlName="patientEmail" class="form-control">
+    </div>
+    <div class="form-group">
+    <label for="patientPhone">Telefon pacijenta:</label>
+    <input type="tel" id="patientPhone" formControlName="patientPhone" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">
+        Zakazi pregled
+    </button>
+</form>

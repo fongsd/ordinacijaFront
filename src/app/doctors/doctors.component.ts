@@ -1,5 +1,6 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { DoctorsService } from '../service/doctors.service';
 
 @Component({
   selector: 'app-doctors',
@@ -9,11 +10,12 @@ import { Component } from '@angular/core';
 })
 export class DoctorsComponent {
 
-  protected doctors: any[] = [
-    { id: 1, name: 'Dr. Smith', specialty: 'Cardiology', experience: 10 },
-    { id: 2, name: 'Dr. Johnson', specialty: 'Neurology', experience: 8 },
-  ]
-  constructor() { }
+  protected doctors: any[] = [];
+  constructor(private doctorService: DoctorsService) { 
+    this.doctorService.getDoctors().subscribe((data: any) => {
+      this.doctors = data;
+    });
+  }
 
   ngOnInit(): void {
   }
